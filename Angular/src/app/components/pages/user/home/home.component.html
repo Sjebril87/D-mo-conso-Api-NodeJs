@@ -1,0 +1,29 @@
+<nb-card>
+    <nb-card-header>
+        <h3>Utilisateurs</h3>
+        <button nbButton (click)="toCreate()">New User</button>
+    </nb-card-header>
+    <nb-card-body>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%">Nom</th>
+                    <th style="width: 30%">Année de naissance</th>
+                    <th style="width: 30%">Ville</th>
+                    <th style="width: 10%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.birth_year}}</td>
+                    <td>{{user.ville}}</td>
+                    <td style="white-space: nowrap">
+                        <button nbButton (click)="toEdit(user.id)" status="warning">Edit</button>&nbsp;
+                        <button nbButton (click)="toDelete(user.id)" status="danger">Delete</button>&nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </nb-card-body>
+</nb-card>

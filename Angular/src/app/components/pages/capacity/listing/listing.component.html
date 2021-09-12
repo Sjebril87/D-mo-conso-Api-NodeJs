@@ -1,0 +1,33 @@
+<nb-card>
+    <nb-card-header>
+        <h3>Capacités</h3>
+        <form [formGroup]="fg" (ngSubmit)="onSubmit()">
+            <div>
+                <p>Noubelle capacité : 
+                    <input nbInput fullWidth type="text" formControlName="capacity"> &nbsp;
+                    <br/>
+                    <button nbButton type="submit" status="info" [disabled]="fg.invalid">Ajouter</button>
+                </p>
+            </div>
+        </form>
+    </nb-card-header>
+    <nb-card-body>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%">Nom</th>
+                    <th style="width: 30%">Modification</th>
+                    <th style="width: 30%">supression</th>
+                    <th style="width: 10%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let capacity of capacities">
+                    <td>{{capacity.name}}</td>
+                    <td><button nbButton (click)="toEdit(capacity.id)" status="warning">Edit</button>&nbsp;</td>
+                    <td><button nbButton (click)="toDelete(capacity.id)" status="danger">Delete</button>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+    </nb-card-body>
+</nb-card>
